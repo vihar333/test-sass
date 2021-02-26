@@ -1,7 +1,130 @@
-body,
-html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
+$primary-bg-color: #242e42;
+$primary-color: #768195;
+$secondary-color: #258FFF;
+$active-bg-color: #20283B;
+$logo-color: #F2F1F6;
+$border-color: #1E293D;
+
+@mixin border-radius($radius) {
+    border-radius: $radius;
+}
+
+@mixin font($size, $weight) {
+    font-size: $size;
+    font-weight: $weight;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: $primary-bg-color;
+    font-family: system-ui;
+}
+
+a {
+    text-decoration: none;
+}
+
+p, h3 {
+    margin: 0;
+}
+
+.container {
+    margin: 0 auto;
+    width: 1200px;
+}
+
+header {
+    border-bottom: 1px solid $border-color;
+    display: flex;
+}
+
+.header-logo {
+    margin: 16px 0 16px 16px;
+    @include font(24px, bold);
+    letter-spacing: 2px;
+    width: 50%;
+}
+
+.header-logo a {
+    color: $logo-color;
+}
+
+.header-logo span {
+    @include font(inherit, normal);
+}
+
+.menu-icon {
+    width: 50%;
+    justify-content: flex-end;
+    display: flex;
+    @include font(20px, bold);
+}
+
+.menu-icon a {
+    color: $primary-color;
+    padding: 16px;
+    border: 1px solid $border-color;
+    border-bottom: none;
+}
+
+#menu {
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+#menu.hide {
+    opacity: 0;
+}
+
+.menu {
+    width: 200px;
+    color: $primary-color;
+    @include font(12px, normal);
+    padding: 20px 0;
+}
+
+.menu-profile {
+    text-align: center;
+}
+
+.menu-profile-img {
+    @include border-radius(50%);
+    width: 100px;
+    height: 100px;
+}
+
+.menu-profile-details h3 {
+    @include font(18px,normal);
+}
+
+.menu-profile-details-icon {
+    margin-left: 8px;
+    color: $secondary-color;
+    @include font(10px,normal);
+}
+
+.menu-list {
+    padding: 0;
+    list-style: none;
+}
+
+.menu-link {
+    display: block;
+    padding: 14px 20px;
+    border-left: 8px solid $primary-bg-color;
+    text-decoration: none;
+    color: $primary-color;
+}
+
+.menu-link:hover {
+    @include border-radius(0 10px 10px 0);
+    color: $secondary-color;
+    background-color: $active-bg-color;
+    border-color: $secondary-color;
+}
+
+.menu-link-icon {
+    @include font(20px, normal);
+    margin-right: 20px;
 }
